@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dylan Smalls | Computer Engineering ePortfolio</title>
+<meta name="description" content="ePortfolio of Dylan Smalls, Computer Engineering student at Georgia Tech and Dual Degree student from Clark Atlanta University.">
+<style>
+  :root {
+    --navy: #13294b;
+    --navy-2: #1e3a66;
+    --gold: #c9a227;
+    --gold-soft: #f4ead0;
+    --ink: #1c2230;
+    --muted: #5b6577;
+    --line: #e2e6ee;
+    --bg: #f7f8fb;
+    --card: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 72px;
+  }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--bg);
+  }
+
+  a {
+    color: var(--navy-2);
+  }
+
+  /* ---------- Placeholder highlight: delete this rule once every highlighted item is replaced ---------- */
+  .fill {
+    background: #fff3a8;
+    padding: 0 4px;
+    border-radius: 3px;
+  }
+
+  /* ---------- Navigation ---------- */
+  header.nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--navy);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .brand {
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .brand span {
+    color: var(--gold);
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  nav a {
+    display: block;
+    padding: 6px 10px;
+    color: #dfe6f3;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  nav a:hover,
+  nav a:focus {
+    background: var(--navy-2);
+    color: #fff;
+  }
+
+  /* ---------- Layout ---------- */
+  section {
+    padding: 64px 20px;
+  }
+
+  section:nth-of-type(even) {
+    background: var(--card);
+  }
+
+  .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  h1, h2, h3 {
+    line-height: 1.25;
+    color: var(--navy);
+  }
+
+  h2 {
+    font-size: 30px;
+    margin: 0 0 8px;
+  }
+
+  h2 + .kicker {
+    margin-top: 0;
+  }
+
+  .kicker {
+    color: var(--muted);
+    margin: 0 0 32px;
+  }
+
+  h3 {
+    font-size: 21px;
+    margin: 32px 0 8px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: #fff;
+    padding: 72px 20px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .hero h1 {
+    color: #fff;
+    font-size: 42px;
+    margin: 0 0 8px;
+  }
+
+  .hero .tagline {
+    color: var(--gold);
+    font-weight: 600;
+    margin: 0 0 16px;
+  }
+
+  .hero p {
+    color: #e6ebf5;
+  }
+
+  .btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+  }
+
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .btn-outline {
+    border: 1.5px solid #fff;
+    color: #fff;
+  }
+
+  .btn-navy {
+    background: var(--navy);
+    color: #fff;
+  }
+
+  /* ---------- Photo slots ---------- */
+  .photo-slot {
+    background: var(--gold-soft);
+    border: 2px dashed var(--gold);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .headshot {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--gold);
+  }
+
+  .photo {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+  }
+
+  figure {
+    margin: 24px 0;
+  }
+
+  figcaption {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  /* ---------- Cards and grids ---------- */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+
+  section:nth-of-type(even) .card {
+    background: var(--bg);
+  }
+
+  .card h3 {
+    margin-top: 0;
+  }
+
+  .facts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .facts li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .facts li:last-child {
+    border-bottom: none;
+  }
+
+  .facts strong {
+    color: var(--navy);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin: 8px 0 0;
+    list-style: none;
+  }
+
+  .tags li {
+    background: var(--gold-soft);
+    color: var(--navy);
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+
+  /* ---------- Project feature ---------- */
+  .project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--navy);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .step {
+    border-left: 4px solid var(--gold);
+    padding: 4px 0 4px 18px;
+    margin: 20px 0;
+  }
+
+  .step h4 {
+    margin: 0 0 4px;
+    color: var(--navy);
+    font-size: 17px;
+  }
+
+  .step p {
+    margin: 0;
+  }
+
+  .more-projects {
+    text-align: center;
+    color: var(--muted);
+  }
+
+  /* ---------- Resume ---------- */
+  .resume-frame {
+    width: 100%;
+    height: 820px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+  }
+
+  /* ---------- SVG graphics ---------- */
+  .graphic {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+
+  /* ---------- Contact / footer ---------- */
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .contact-list li {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+  }
+
+  .contact-list .label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  footer {
+    background: var(--navy);
+    color: #c9d3e6;
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 14px;
+  }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 760px) {
+    body {
+      font-size: 16px;
+    }
+
+    .nav-inner {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 6px;
+      padding: 10px 12px;
+    }
+
+    html {
+      scroll-padding-top: 100px;
+    }
+
+    .hero-grid,
+    .two-col,
+    .project-card {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-grid {
+      text-align: center;
+      gap: 24px;
+    }
+
+    .hero-grid .headshot,
+    .hero-grid .photo-slot {
+      margin: 0 auto;
+    }
+
+    .btn-row {
+      justify-content: center;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+    }
+
+    h2 {
+      font-size: 26px;
+    }
+
+    section {
+      padding: 48px 16px;
+    }
+
+    .contact-list {
+      grid-template-columns: 1fr;
+    }
+
+    .resume-frame {
+      height: 520px;
+    }
+
+    .scroll-x {
+      overflow-x: auto;
+    }
+
+    .scroll-x .graphic {
+      min-width: 620px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#home">Dylan <span>Smalls</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#goals">Career Goals</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- =============================== WELCOME =============================== -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <img class="headshot" src="images/headshot.jpg" alt="Dylan Smalls professional headshot">
+    <div>
+      <span class="eyebrow">Welcome</span>
+      <h1>Dylan Smalls</h1>
+      <p class="tagline">Computer Engineering · Georgia Tech &nbsp;|&nbsp; Computer Science · Clark Atlanta University</p>
+      <p>
+        Welcome to my ePortfolio. I am a Dual Degree Engineering student who builds where software meets hardware,
+        and I am especially interested in distributed systems, computer architecture, and cybersecurity.
+        Here you will find my story, my projects, and the plan I am following to get where I want to go.
+        I am currently seeking a Software Development or Computer/Systems Engineering internship.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-gold" href="#projects">See My Projects</a>
+        <a class="btn btn-outline" href="resume.pdf" download>Download Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== ABOUT =============================== -->
+<section id="about">
+  <div class="wrap">
+    <h2>About Me</h2>
+    <p class="kicker">From writing code to understanding the machine underneath it.</p>
+
+    <div class="two-col">
+      <div>
+        <p>
+          My path to Georgia Tech started at Clark Atlanta University, where I spent three years earning my
+          foundation in Computer Science and finished with a 3.69 GPA. Programming taught me how to tell a computer
+          what to do, but I kept wondering what was actually happening underneath my code. How does a line of Java
+          turn into electrical signals? How do thousands of machines work together as one system? Those questions
+          led me to the Dual Degree Engineering Program, and in August 2026 I started at Georgia Tech to study
+          Computer Engineering. When I finish, I will hold degrees from both schools.
+        </p>
+        <p>
+          At Clark Atlanta, I got my first taste of building real systems. As a backend developer and cloud engineer
+          on the ViSiDEL research team, I built the speech-to-text pipeline for DOGUI.ai, an AI assistant powered by
+          IBM watsonx that we demoed to IBM stakeholders. The following summer, I worked as an undergraduate
+          researcher developing and troubleshooting software for faculty-led research. I also joined the CAU Robotics
+          Team, where I got hands-on experience making hardware and software work together.
+        </p>
+        <p>
+          My first semester at Georgia Tech has connected those two worlds even more. In ECE 2020, I designed logic
+          circuits from the transistor level up, building gates out of CMOS transistors and then building larger
+          designs out of NAND and NOR gates. At the same time, CS 1331 has pushed me to write cleaner, more
+          object-oriented Java. Seeing the same problem from the hardware side and the software side is exactly
+          why I chose Computer Engineering.
+        </p>
+        <p>
+          Helping others matters to me too. As a residential counselor for the Google Scholar Program, I mentored a
+          cohort of 40 incoming Clark Atlanta freshmen through a three-week summer program, and every one of them
+          completed it. I am also a member of the National Society of Black Engineers (NSBE), which connects me with
+          engineering students across the Atlanta University Center.
+        </p>
+        <p>
+          Outside of engineering, I am learning Japanese, which is how my Discovery Project began. Studying vocabulary
+          every week made me want a better study tool, so I decided to build one myself. That is the kind of engineer
+          I want to be: someone who notices a real problem in everyday life and builds something to fix it.
+        </p>
+        <p>
+          I am from Covington, Georgia. Long term, I want to lead teams at a major company or start my own business,
+          and I am also working toward a real estate license. Outside of class, I enjoy playing video games, watching
+          anime, spending time outdoors, and going to the gym. Some of my favorite times are playing board games with my family.
+        </p>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3>Quick Facts</h3>
+          <ul class="facts">
+            <li><strong>Program:</strong> Dual Degree Engineering Program (Clark Atlanta University and Georgia Tech)</li>
+            <li><strong>Georgia Tech:</strong> B.S. Computer Engineering, expected May 2028</li>
+            <li><strong>Clark Atlanta:</strong> B.S. Computer Science, GPA 3.69, Honors Program</li>
+            <li><strong>Certifications:</strong> IBM certifications in AI, Data Science, and Cybersecurity</li>
+            <li><strong>Planned threads:</strong> Distributed Systems &amp; Software Design; Computing Hardware &amp; Emerging Architectures</li>
+            <li><strong>Seeking:</strong> Software Development or Computer/Systems Engineering internship</li>
+            <li><strong>Languages:</strong> English; currently learning Japanese</li>
+          </ul>
+        </div>
+
+        <figure>
+            <img class="photo" src="images/graduation.jpg" alt="Dylan at his graduation">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== PROJECTS =============================== -->
+<section id="projects">
+  <div class="wrap">
+    <h2>Technical Projects</h2>
+    <p class="kicker">Things I have designed and built. This section grows with every new project.</p>
+
+    <!-- ---------- Discovery Project Feature ---------- -->
+    <div class="project-card">
+      <div>
+        <span class="badge">Discovery Project · ECE 1100 · In Progress</span>
+        <h3>ESP32 Multi-Subject Flashcard Device</h3>
+        <p>
+          A low-cost, handheld study device I am designing around an ESP32 microcontroller. It will store flashcard
+          decks for multiple subjects, starting with Japanese vocabulary, and quiz me without the distractions of a phone.
+        </p>
+        <ul class="tags">
+          <li>ESP32</li>
+          <li>Hardware prototyping</li>
+          <li>Design thinking</li>
+        </ul>
+      </div>
+      <!-- Before the Showcase, replace this card with your own photo of the device (required by the assignment):
+           <img class="photo" src="images/flashcard-device.jpg" alt="ESP32 flashcard device prototype"> -->
+      <div class="card" style="text-align: center;">
+        <span class="eyebrow">Status</span>
+        <h3 style="margin-top: 0;">Design complete · Build starting</h3>
+        <p style="margin: 0;">Prototype photos and results will be posted here as the build progresses.</p>
+      </div>
+    </div>
+
+    <h3>The Problem</h3>
+    <p>
+      This semester I started learning Japanese, and the class has a vocabulary exam every few weeks. Flashcards are
+      one of the best ways to memorize vocabulary, but both common options had problems for me. Paper cards are easy to
+      lose, hard to shuffle by topic, and turn into a messy stack after a few chapters. Flashcard apps work well, but
+      studying on my phone means notifications and other apps are always one tap away. I wanted a dedicated study tool
+      that is portable, focused, and flexible enough to hold decks for any class, not just Japanese. It also had to be
+      affordable for a student and something I could build and test in my dorm room.
+    </p>
+
+    <h3>The Process</h3>
+    <p>I am following the design thinking process to move from an idea to a working prototype. The first three
+    stages are complete, and the build is next.</p>
+
+    <div class="step">
+      <h4>1. Empathize ✓</h4>
+      <p>
+        I started with my own study habits while preparing for weekly vocabulary exams. What I needed most was quick
+        review sessions, the ability to focus on one lesson at a time, and fewer distractions.
+      </p>
+    </div>
+    <div class="step">
+      <h4>2. Define ✓</h4>
+      <p>
+        I defined the goal as a handheld device that displays a card, lets the user flip it to see the answer, marks
+        whether they knew it, and moves to the next card, with decks organized by subject and lesson.
+      </p>
+    </div>
+    <div class="step">
+      <h4>3. Ideate ✓</h4>
+      <p>
+        I chose the ESP32 because it is inexpensive, well documented, and has built-in Wi-Fi, which leaves room to
+        load new decks wirelessly in a future version. I then planned how the buttons, screen, and storage will fit
+        together (see the system diagram below) and presented the idea in my project pitch.
+      </p>
+    </div>
+    <div class="step">
+      <h4>4. Prototype (next)</h4>
+      <p>
+        I will build the first prototype on a breadboard so I can change the wiring easily, then write the firmware
+        that shows a card, flips it, and moves through a deck. The goal is to keep the total cost low enough for any
+        student to build one.
+      </p>
+    </div>
+    <div class="step">
+      <h4>5. Test (upcoming)</h4>
+      <p>
+        I will use the device to study for my Japanese vocabulary exams, note what slows me down or feels awkward,
+        and improve the design based on what I find.
+      </p>
+    </div>
+
+    <!-- GRAPHIC 4: system block diagram (edit the labels so they match your real build) -->
+    <figure>
+      <div class="scroll-x"><svg class="graphic" viewBox="0 0 760 300" role="img" aria-labelledby="sysTitle sysDesc">
+        <title id="sysTitle">Flashcard device system diagram</title>
+        <desc id="sysDesc">Buttons send input to the ESP32 microcontroller, which reads decks from flash storage and shows cards on the display. Wi-Fi deck loading is planned for a future version.</desc>
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#13294b"></path>
+          </marker>
+        </defs>
+        <rect x="0" y="0" width="760" height="300" fill="#ffffff"></rect>
+
+        <rect x="30" y="110" width="160" height="80" rx="10" fill="#f4ead0" stroke="#c9a227" stroke-width="2"></rect>
+        <text x="110" y="145" text-anchor="middle" font-size="17" font-weight="700" fill="#13294b">Buttons</text>
+        <text x="110" y="168" text-anchor="middle" font-size="13" fill="#5b6577">flip · knew it · missed</text>
+
+        <rect x="290" y="95" width="180" height="110" rx="12" fill="#13294b"></rect>
+        <text x="380" y="143" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">ESP32</text>
+        <text x="380" y="167" text-anchor="middle" font-size="13" fill="#c9a227">quiz logic · firmware</text>
+
+        <rect x="570" y="110" width="160" height="80" rx="10" fill="#f4ead0" stroke="#c9a227" stroke-width="2"></rect>
+        <text x="650" y="145" text-anchor="middle" font-size="17" font-weight="700" fill="#13294b">Display</text>
+        <text x="650" y="168" text-anchor="middle" font-size="13" fill="#5b6577">shows card front/back</text>
+
+        <rect x="290" y="235" width="180" height="50" rx="10" fill="#ffffff" stroke="#13294b" stroke-width="2"></rect>
+        <text x="380" y="265" text-anchor="middle" font-size="15" font-weight="600" fill="#13294b">Flash storage: decks</text>
+
+        <rect x="290" y="12" width="180" height="50" rx="10" fill="#ffffff" stroke="#13294b" stroke-width="2" stroke-dasharray="6 5"></rect>
+        <text x="380" y="42" text-anchor="middle" font-size="15" font-weight="600" fill="#5b6577">Wi-Fi decks (future)</text>
+
+        <line x1="190" y1="150" x2="286" y2="150" stroke="#13294b" stroke-width="2.5" marker-end="url(#arrow)"></line>
+        <line x1="470" y1="150" x2="566" y2="150" stroke="#13294b" stroke-width="2.5" marker-end="url(#arrow)"></line>
+        <line x1="380" y1="235" x2="380" y2="209" stroke="#13294b" stroke-width="2.5" marker-end="url(#arrow)"></line>
+        <line x1="380" y1="62" x2="380" y2="91" stroke="#5b6577" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"></line>
+      </svg></div>
+      <figcaption>Planned system design for the flashcard device (created by me).</figcaption>
+    </figure>
+
+    <h3>The Outcome So Far</h3>
+    <p>
+      The project is in progress. The problem, requirements, and system design are complete, and I am moving into
+      the build. My goal for the Discovery Project Showcase is a working device that can store several decks and
+      quiz me through a full Japanese vocabulary lesson. I will update this page with photos, results, and lessons
+      learned as the build comes together.
+    </p>
+
+    <h3>What Comes Next</h3>
+    <p>
+      After the first working version, I want to use the ESP32's Wi-Fi to load new decks from my laptop, add a simple
+      spaced-repetition system so the device shows harder cards more often, and use my 3D printing experience to
+      design a case so it can travel in my backpack.
+    </p>
+
+    <hr style="border: none; border-top: 1px solid var(--line); margin: 48px 0;">
+
+    <!-- ---------- DOGUI.ai ---------- -->
+    <div class="project-card">
+      <div>
+        <span class="badge">Research Team Capstone · Clark Atlanta University · Spring 2025</span>
+        <h3>DOGUI.ai: Voice-Enabled AI Design Assistant</h3>
+        <p><strong>Role:</strong> Backend Developer and Cloud Engineer, ViSiDEL (Visual, Simulation, and Design Lab) Research Team</p>
+        <ul class="tags">
+          <li>IBM watsonx</li>
+          <li>Speech-to-text</li>
+          <li>Backend development</li>
+          <li>Cloud</li>
+        </ul>
+      </div>
+
+      <figure style="margin: 0;">
+        <img class="photo" src="images/dogui-pipeline.svg" alt="DOGUI.ai speech-to-text pipeline diagram">
+      </figure>
+    </div>
+
+    <h3>The Problem</h3>
+    <p>
+      Engineers working through the Engineering Design Process (ideation, simulation, and implementation) often
+      have to jump between separate tools and resources. Our team set out to build DOGUI.ai, a GenAI website built on
+      IBM watsonx that guides engineers through each stage of the design process with AI-assisted tools.
+    </p>
+
+    <h3>My Contribution</h3>
+    <p>
+      I engineered the speech-to-text pipeline and helped build the text-to-speech pipeline for the DOGUI.ai
+      assistant using IBM watsonx APIs. Together, these let users speak naturally into a microphone and hear the
+      AI's responses in real time, like a live conversation. I then integrated voice interaction into the website's
+      core assistant feature.
+    </p>
+
+    <h3>The Outcome</h3>
+    <p>
+      The voice-enabled assistant was successfully demoed to IBM stakeholders and Clark Atlanta University leadership
+      as part of our final project presentation. Working on a team taught me how to connect my piece of a system to
+      everyone else's, and how much testing and troubleshooting it takes to make a live demo work.
+    </p>
+
+    <p class="more-projects">More projects coming soon as I continue at Georgia Tech.</p>
+  </div>
+</section>
+
+<!-- =============================== EXPERIENCE =============================== -->
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="kicker">Research, mentoring, and teamwork.</p>
+
+    <div class="two-col">
+      <div class="card">
+        <span class="eyebrow">Summer 2025</span>
+        <h3>Undergraduate Researcher</h3>
+        <p><strong>Clark Atlanta University · Atlanta, GA</strong></p>
+        <p>
+          Developed and maintained software systems supporting faculty-led research. I collaborated with faculty and
+          peers to test and troubleshoot technical solutions, which resulted in a virtual simulation of a working
+          prototype.
+        </p>
+      </div>
+      <div class="card">
+        <span class="eyebrow">Summer 2024</span>
+        <h3>Residential Counselor</h3>
+        <p><strong>Google Scholar Program · Atlanta, GA</strong></p>
+        <p>
+          Mentored a cohort of 40 incoming Clark Atlanta freshmen through a three-week residential program focused on
+          STEM and campus life, with a 100% completion rate. I gave first-hand guidance on college life and academic
+          expectations to help students build confidence and connections before their first semester.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== CAREER GOALS =============================== -->
+<section id="goals">
+  <div class="wrap">
+    <h2>Career Goals</h2>
+    <p class="kicker">Where I am headed, and the steps that will get me there.</p>
+
+    <p>
+      Within five years of graduating, I want to have real-world industry experience as a software or systems
+      engineer, graduate school, or both. Long term, my goal is to hold a leadership position at a major technology
+      company or to start my own business. I am also working toward a real estate license, because I want to build
+      skills and investments outside of engineering as well. Here is my plan to get from where I am now to where I
+      want to be.
+    </p>
+
+    <!-- GRAPHIC 6: roadmap timeline -->
+    <figure>
+      <div class="scroll-x"><svg class="graphic" viewBox="0 0 800 250" role="img" aria-labelledby="mapTitle mapDesc">
+        <title id="mapTitle">Career roadmap</title>
+        <desc id="mapDesc">Timeline from Clark Atlanta University in 2023 through Georgia Tech, internships, graduation, and long-term leadership or entrepreneurship.</desc>
+        <rect x="0" y="0" width="800" height="250" fill="#ffffff"></rect>
+        <line x1="60" y1="110" x2="740" y2="110" stroke="#13294b" stroke-width="4"></line>
+
+        <circle cx="80" cy="110" r="14" fill="#13294b"></circle>
+        <text x="80" y="70" text-anchor="middle" font-size="15" font-weight="700" fill="#13294b">2023–2026</text>
+        <text x="80" y="150" text-anchor="middle" font-size="13" fill="#1c2230">Clark Atlanta</text>
+        <text x="80" y="168" text-anchor="middle" font-size="13" fill="#1c2230">B.S. CS foundation</text>
+
+        <circle cx="240" cy="110" r="14" fill="#13294b"></circle>
+        <text x="240" y="70" text-anchor="middle" font-size="15" font-weight="700" fill="#13294b">Fall 2026</text>
+        <text x="240" y="150" text-anchor="middle" font-size="13" fill="#1c2230">Start at Georgia Tech</text>
+        <text x="240" y="168" text-anchor="middle" font-size="13" fill="#1c2230">Discovery Project</text>
+
+        <circle cx="400" cy="110" r="18" fill="#c9a227"></circle>
+        <text x="400" y="70" text-anchor="middle" font-size="15" font-weight="700" fill="#13294b">2027</text>
+        <text x="400" y="150" text-anchor="middle" font-size="13" fill="#1c2230">Internship · research</text>
+        <text x="400" y="168" text-anchor="middle" font-size="13" fill="#1c2230">IEEE · threads</text>
+
+        <circle cx="560" cy="110" r="14" fill="#13294b"></circle>
+        <text x="560" y="70" text-anchor="middle" font-size="15" font-weight="700" fill="#13294b">2028</text>
+        <text x="560" y="150" text-anchor="middle" font-size="13" fill="#1c2230">Graduate with</text>
+        <text x="560" y="168" text-anchor="middle" font-size="13" fill="#1c2230">two degrees</text>
+
+        <circle cx="720" cy="110" r="14" fill="#13294b"></circle>
+        <text x="720" y="70" text-anchor="middle" font-size="15" font-weight="700" fill="#13294b">Next 5+ yrs</text>
+        <text x="720" y="150" text-anchor="middle" font-size="13" fill="#1c2230">Industry · grad school</text>
+        <text x="720" y="168" text-anchor="middle" font-size="13" fill="#1c2230">Lead or found a company</text>
+
+        <text x="400" y="225" text-anchor="middle" font-size="13" fill="#5b6577">The gold marker is my next milestone.</text>
+      </svg></div>
+      <figcaption>My roadmap from Clark Atlanta to my long-term goals (created by me).</figcaption>
+    </figure>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Steps at Georgia Tech</h3>
+        <ul>
+          <li><strong>Choose focused threads.</strong> I plan to specialize in Distributed Systems &amp; Software Design and Computing Hardware &amp; Emerging Architectures, which match my interest in both software and hardware and can be finished within my two years here.</li>
+          <li><strong>Land an internship.</strong> I am applying for Software Development and Computer/Systems Engineering internships to get real industry experience before I graduate.</li>
+          <li><strong>Get into research.</strong> I plan to apply to the ECE Opportunity Research Scholars (ORS) program to gain undergraduate research experience, which will also help me decide on graduate school.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Skills I Am Building</h3>
+        <ul>
+          <li><strong>Problem solving under pressure.</strong> I plan to join Competitive Programming @ Tech to sharpen my algorithms and technical interview skills.</li>
+          <li><strong>Hands-on engineering.</strong> Through GT IEEE and projects like my flashcard device, I am building practical hardware and embedded skills.</li>
+          <li><strong>Security knowledge.</strong> Cybersecurity is a fast-growing field, so I want to take security courses as electives.</li>
+          <li><strong>Leadership.</strong> Taking on officer or project-lead roles in student organizations will prepare me for leading teams later in my career.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== RESUME =============================== -->
+<section id="resume">
+  <div class="wrap">
+    <h2>Resume</h2>
+    <p class="kicker">My one-page Career Fair resume. View it below or download a copy.</p>
+    <div class="btn-row" style="margin: 0 0 20px;">
+      <a class="btn btn-navy" href="resume.pdf" download>Download Resume (PDF)</a>
+      <a class="btn btn-navy" href="resume.pdf" target="_blank" rel="noopener">Open in New Tab</a>
+    </div>
+    <!-- Put your polished resume next to this file and name it resume.pdf -->
+    <iframe class="resume-frame" src="resume.pdf" title="Dylan Smalls resume"></iframe>
+  </div>
+</section>
+
+<!-- =============================== SKILLS & COURSEWORK =============================== -->
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills &amp; Coursework</h2>
+    <p class="kicker">What I work with and what I am studying.</p>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Technical Skills</h3>
+        <p><strong>Programming:</strong></p>
+        <ul class="tags">
+          <li>Java</li>
+          <li>Python</li>
+          <li>JavaScript</li>
+          <li>SQL</li>
+          <li>Node.js</li>
+        </ul>
+        <p><strong>Hardware and design:</strong></p>
+        <ul class="tags">
+          <li>Digital logic design</li>
+          <li>CMOS transistor-level design</li>
+          <li>ESP32 microcontrollers</li>
+          <li>3D printing</li>
+          <li>Filament extruder</li>
+        </ul>
+        <p><strong>Tools:</strong></p>
+        <ul class="tags">
+          <li>GitHub</li>
+          <li>IBM watsonx</li>
+          <li>TinkerCAD</li>
+        </ul>
+        <p><strong>Communication:</strong> design proposals, technical reports, and presentations</p>
+      </div>
+
+      <div class="card">
+        <h3>Relevant Coursework</h3>
+        <ul class="facts">
+          <li><strong>Digital System Design:</strong> combinational and sequential logic design</li>
+          <li><strong>Object-Oriented Programming:</strong> OOP principles and Java application design</li>
+          <li><strong>Data Structures:</strong> arrays, linked lists, trees, graphs, Big-O analysis, recursion, searching and sorting</li>
+          <li><strong>Software Engineering:</strong> development lifecycle, requirements and design, testing, version control</li>
+          <li><strong>Electric Circuit Analysis:</strong> DC/AC analysis, Kirchhoff's laws, circuit simulation, lab measurement</li>
+        </ul>
+        <h3>Organizations</h3>
+        <ul class="facts">
+          <li><strong>National Society of Black Engineers (NSBE)</strong> Member, 2023–present</li>
+          <li><strong>Clark Atlanta University Honors Program</strong> Member, 2023–present</li>
+          <li><strong>CAU Robotics Team</strong> Member, 2025–2026</li>
+          <li><strong>Next at Georgia Tech:</strong> GT IEEE, Competitive Programming @ Tech, and ECE Opportunity Research Scholars</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== CONTACT =============================== -->
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p class="kicker">I would love to connect about internships, projects, or research.</p>
+    <ul class="contact-list">
+      <li>
+        <span class="label">Email</span>
+        <a href="mailto:dsmalls30@gatech.edu">dsmalls30@gatech.edu</a>
+      </li>
+      <li>
+        <span class="label">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/dylan-smalls-cs" target="_blank" rel="noopener">linkedin.com/in/dylan-smalls-cs</a>
+      </li>
+      <li>
+        <span class="label">GitHub</span>
+        <a href="#" class="fill">your GitHub URL</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2026 Dylan Smalls · Built for ECE 1100 at Georgia Tech
+</footer>
+
+</body>
+</html>
